@@ -11,7 +11,7 @@
     :root {
         --cosmic-bg-start: #0a0015;
         --cosmic-bg-end: #1a0a2d;
-        --cosmic-glow: rgba(150, 0, 255, 0.5); 
+        --cosmic-glow: rgba(150, 0, 255, 0.5);
         --cosmic-glow-hover: rgba(150, 0, 255, 0.7);
         --cosmic-text: #b100ff;
         --cosmic-text-hover: #00ffea;
@@ -305,6 +305,7 @@
     }
 
     
+    #tuy_chinh_thong_so .cosmic-range,
     #volume .cosmic-range,
     #reverb_effect .cosmic-range,
     #echo_effect .cosmic-range {
@@ -1191,7 +1192,7 @@
                 <h1>Equalizer Đầy đủ</h1>
                 <!-- <p>Cài đặt bộ cân bằng âm thanh nâng cao.</p> -->
                 <div class="a2">
-                    <div class="tuy_chinh_thong_so">
+                    <div id="tuy_chinh_thong_so">
                         <div class="cosmic-slider-container">
                             <label for="slider9">Fs:</label>
                             <input type="range" min="20" max="20000" step="1" value="50" class="cosmic-range" id="slider9">
@@ -1560,10 +1561,10 @@
             <div id="customer_info" class="content-section" data-bg-text="Thông tin khách hàng">
                 <div class="scattered-text"></div>
                 <h1>Thông tin khách hàng</h1>
-                <p>người nhận:</p>
-                <p>địa chỉ:</p>
-                <p>số điện thoại: </p>
-                <p>link facebook: </p>
+                <p>người nhận: anh Dũng</p>
+                <p>địa chỉ: 26 Huỳnh Thúc Kháng, Phường Phước Tiến, Thành phố Nha Trang, Tỉnh Khánh Hòa</p>
+                <p>số điện thoại: 0905210993</p>
+                <p>link facebook: liên hệ qua zalo</p>
                 <p></p>
                 <p></p>
                 <p></p>
@@ -1628,13 +1629,13 @@
 ----------------------------------------------------------------------------------------
 Calibration fuses:
 BLK3_PART_RESERVE (BLOCK0):              BLOCK3 partially served for ADC calibration data   = False R/W (0b0)
-ADC_VREF (BLOCK0):                       Voltage reference calibration                      = 1093 R/W (0b10001)
+ADC_VREF (BLOCK0):                       Voltage reference calibration                      = 1142 R/W (0b00110)
 
 Config fuses:
 XPD_SDIO_FORCE (BLOCK0):                 Ignore MTDI pin (GPIO12) for VDD_SDIO on reset     = False R/W (0b0)
 XPD_SDIO_REG (BLOCK0):                   If XPD_SDIO_FORCE, enable VDD_SDIO reg on reset    = False R/W (0b0)
 XPD_SDIO_TIEH (BLOCK0):                  If XPD_SDIO_FORCE & XPD_SDIO_REG                   = 1.8V R/W (0b0)
-CLK8M_FREQ (BLOCK0):                     8MHz clock freq override                           = 54 R/W (0x36)
+CLK8M_FREQ (BLOCK0):                     8MHz clock freq override                           = 52 R/W (0x34)
 SPI_PAD_CONFIG_CLK (BLOCK0):             Override SD_CLK pad (GPIO6/SPICLK)                 = 0 R/W (0b00000)
 SPI_PAD_CONFIG_Q (BLOCK0):               Override SD_DATA_0 pad (GPIO7/SPIQ)                = 0 R/W (0b00000)
 SPI_PAD_CONFIG_D (BLOCK0):               Override SD_DATA_1 pad (GPIO8/SPID)                = 0 R/W (0b00000)
@@ -1643,16 +1644,16 @@ SPI_PAD_CONFIG_CS0 (BLOCK0):             Override SD_CMD pad (GPIO11/SPICS0)    
 DISABLE_SDIO_HOST (BLOCK0):              Disable SDIO host                                  = False R/W (0b0)
 
 Efuse fuses:
-WR_DIS (BLOCK0):                         Efuse write disable mask                           = 0 R/W (0x0000)
-RD_DIS (BLOCK0):                         Efuse read disable mask                            = 0 R/W (0x0)
+WR_DIS (BLOCK0):                         Efuse write disable mask                           = 128 R/W (0x0080)
+RD_DIS (BLOCK0):                         Efuse read disable mask                            = 1 R/W (0x1)
 CODING_SCHEME (BLOCK0):                  Efuse variable block length scheme
    = NONE (BLK1-3 len=256 bits) R/W (0b00)
 KEY_STATUS (BLOCK0):                     Usage of efuse block 3 (reserved)                  = False R/W (0b0)
 
 Identity fuses:
 MAC (BLOCK0):                            Factory MAC Address
-   = 78:1c:3c:f4:c5:ac (CRC 0x6a OK) R/W
-MAC_CRC (BLOCK0):                        CRC8 for factory MAC address                       = 106 R/W (0x6a)
+   = c8:f0:9e:4e:59:20 (CRC 0x4f OK) R/W
+MAC_CRC (BLOCK0):                        CRC8 for factory MAC address                       = 79 R/W (0x4f)
 CHIP_VER_REV1 (BLOCK0):                  Silicon Revision 1                                 = True R/W (0b1)
 CHIP_VER_REV2 (BLOCK0):                  Silicon Revision 2                                 = True R/W (0b1)
 CHIP_VERSION (BLOCK0):                   Reserved for future chip versions                  = 2 R/W (0b10)
@@ -1660,16 +1661,17 @@ CHIP_PACKAGE (BLOCK0):                   Chip package identifier                
 MAC_VERSION (BLOCK3):                    Version of the MAC field                           = 0 R/W (0x00)
 
 Security fuses:
-FLASH_CRYPT_CNT (BLOCK0):                Flash encryption mode counter                      = 0 R/W (0b0000000)
+FLASH_CRYPT_CNT (BLOCK0):                Flash encryption mode counter                      = 63 R/W (0b0111111)
 UART_DOWNLOAD_DIS (BLOCK0):              Disable UART download mode (ESP32 rev3 only)       = False R/W (0b0)
-FLASH_CRYPT_CONFIG (BLOCK0):             Flash encryption config (key tweak bits)           = 0 R/W (0x0)
+FLASH_CRYPT_CONFIG (BLOCK0):             Flash encryption config (key tweak bits)           = 15 R/W (0xf)
 CONSOLE_DEBUG_DISABLE (BLOCK0):          Disable ROM BASIC interpreter fallback             = True R/W (0b1)
 ABS_DONE_0 (BLOCK0):                     Secure boot V1 is enabled for bootloader image     = False R/W (0b0)
 ABS_DONE_1 (BLOCK0):                     Secure boot V2 is enabled for bootloader image     = False R/W (0b0)
 JTAG_DISABLE (BLOCK0):                   Disable JTAG                                       = False R/W (0b0)
 DISABLE_DL_ENCRYPT (BLOCK0):             Disable flash encryption in UART bootloader        = False R/W (0b0)
 DISABLE_DL_DECRYPT (BLOCK0):             Disable flash decryption in UART bootloader        = False R/W (0b0)
-DISABLE_DL_CACHE (BLOCK0):               Disable flash cache in UART bootloader             = False R/W (0b0)</p>
+DISABLE_DL_CACHE (BLOCK0):               Disable flash cache in UART bootloader             = False R/W (0b0)
+BLOCK1 (BLOCK1):                         Flash encryption key</p>
             </div>
         </div>
     </div>
@@ -2203,6 +2205,222 @@ document.querySelectorAll('.cosmic-range').forEach(slider => {
     // Gắn hàm vào global để gọi từ HTML (nút "Gửi yêu cầu thay đổi")
     window.applyFilter = applyFilter;
     })();
+
+
+
+
+
+
+
+
+
+
+
+//     // IIFE cho Advanced Equalizer section
+// (function() {
+//     // Hàm throttle để giới hạn tần suất gọi hàm
+//     function throttle(func, limit) {
+//         let inThrottle;
+//         return function (...args) {
+//             if (!inThrottle) {
+//                 func.apply(this, args);
+//                 inThrottle = true;
+//                 setTimeout(() => (inThrottle = false), limit);
+//             }
+//         };
+//     }
+
+//     function setupSlider(sliderID, inputID) {
+//         const slider = document.getElementById(sliderID);
+//         const input = document.getElementById(inputID);
+
+//         // Kiểm tra phần tử tồn tại
+//         if (!slider || !input) {
+//             console.error(`Không tìm thấy slider (${sliderID}) hoặc input (${inputID})`);
+//             return;
+//         }
+
+//         // Hàm gửi dữ liệu fs đến ESP32 (chỉ cho slider9)
+//         const sendFsToESP32 = throttle(function (fs) {
+//             const channel = document.getElementById('kênh_âm_thanh').value;
+//             const filterType = document.getElementById('loại_bộ_lọc').value;
+//             const filterOrder = document.getElementById('số_thứ_tự_bộ_lọc').value;
+//             const db = parseFloat(document.getElementById('slider10').value);
+//             const q = parseFloat(document.getElementById('slider11').value);
+
+//             // Kiểm tra giá trị hợp lệ
+//             if (isNaN(fs) || isNaN(db) || isNaN(q) || !channel || !filterType || !filterOrder) {
+//                 console.error('[Advanced EQ] Thiếu dữ liệu để gửi fs đến ESP32');
+//                 return;
+//             }
+
+//             // Gửi filterType nguyên bản, không mã hóa
+//             const dataToSend = `0;0;${channel},${fs},${db},${q},${filterOrder},${filterType}~!@`;
+//             const xhttp = new XMLHttpRequest();
+//             xhttp.open("POST", "/data_in_esp", true);
+//             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//             xhttp.onreadystatechange = function () {
+//                 if (this.readyState === 4) {
+//                     if (this.status === 200) {
+//                         console.log(`[Advanced EQ] Phản hồi từ ESP32 (fs): ${this.responseText}`);
+//                     } else {
+//                         console.error(`[Advanced EQ] Lỗi khi gửi fs: ${this.status}`);
+//                     }
+//                 }
+//             };
+//             xhttp.send(dataToSend);
+//             console.log(`[Advanced EQ] Gửi dữ liệu fs: ${dataToSend}`);
+//         }, 200); // Throttle mỗi 0.2 giây
+
+//         let isDragging = false;
+
+//         // Sự kiện mousedown/touchstart để bắt đầu kéo
+//         slider.addEventListener('mousedown', () => (isDragging = true));
+//         slider.addEventListener('touchstart', () => (isDragging = true));
+
+//         // Sự kiện input để gửi dữ liệu khi kéo (chỉ cho slider9)
+//         slider.addEventListener('input', () => {
+//             const value = parseFloat(slider.value);
+//             input.value = value;
+//             input.dataset.previousValue = value;
+//             slider.setAttribute('data-value', value);
+//             const label = slider.previousElementSibling?.textContent.trim() || sliderID;
+//             console.log(`[Advanced EQ] Giá trị của ${label} là: ${value}`);
+//             const container = slider.closest('.cosmic-slider-container');
+//             container.classList.add('active-pulse');
+//             setTimeout(() => container.classList.remove('active-pulse'), 1000);
+
+//             // Gửi fs đến ESP32 nếu là slider9 và đang kéo
+//             if (sliderID === 'slider9' && isDragging) {
+//                 sendFsToESP32(value);
+//             }
+//         });
+
+//         // Sự kiện mouseup/touchend để dừng gửi
+//         slider.addEventListener('mouseup', () => (isDragging = false));
+//         slider.addEventListener('touchend', () => (isDragging = false));
+
+//         // Sự kiện change cho ô nhập số
+//         input.addEventListener('change', () => {
+//             const value = Math.min(Math.max(parseFloat(input.value) || 0, parseFloat(input.min)), parseFloat(input.max));
+//             if (isNaN(value)) {
+//                 alert(`Giá trị không hợp lệ! Phải là số trong khoảng [${input.min}, ${input.max}].`);
+//                 input.value = input.dataset.previousValue || input.min;
+//                 slider.value = input.value;
+//                 slider.setAttribute('data-value', input.value);
+//                 return;
+//             }
+//             input.value = value;
+//             slider.value = value;
+//             input.dataset.previousValue = value;
+//             slider.setAttribute('data-value', value);
+//             const label = slider.previousElementSibling?.textContent.trim() || sliderID;
+//             console.log(`[Advanced EQ] Giá trị của ${label} là: ${value}`);
+//             const container = slider.closest('.cosmic-slider-container');
+//             container.classList.add('active-pulse');
+//             setTimeout(() => container.classList.remove('active-pulse'), 1000);
+//         });
+//     }
+
+//     setupSlider('slider9', 'number9');
+//     setupSlider('slider10', 'number10');
+//     setupSlider('slider11', 'number11');
+
+//     function applyFilter() {
+//         const fs = parseFloat(document.getElementById('slider9').value);
+//         const db = parseFloat(document.getElementById('slider10').value);
+//         const q = parseFloat(document.getElementById('slider11').value);
+//         const filterType = document.getElementById('loại_bộ_lọc').value;
+//         const filterOrder = document.getElementById('số_thứ_tự_bộ_lọc').value;
+//         const channel = document.getElementById('kênh_âm_thanh').value;
+
+//         // Kiểm tra giá trị hợp lệ
+//         if (isNaN(fs) || isNaN(db) || isNaN(q) || !filterType || !filterOrder || !channel) {
+//             alert('Vui lòng nhập đầy đủ và đúng định dạng tất cả các giá trị!');
+//             return;
+//         }
+
+//         const channelMap = {
+//             '1': '1l', // Kênh Trái
+//             '2': '1r', // Kênh Phải
+//             '3': '2l', // Kênh Sub
+//             '4': '2r', // Kênh Center
+//             '5': 'm',  // Kênh Micro 1
+//             '6': 'm'   // Kênh Micro 2
+//         };
+
+//         const channelTextMap = {
+//             '1': 'Kênh Trái',
+//             '2': 'Kênh Phải',
+//             '3': 'Kênh Sub',
+//             '4': 'Kênh Center',
+//             '5': 'Kênh Micro 1',
+//             '6': 'Kênh Micro 2'
+//         };
+
+//         let adjustedOrder = filterOrder;
+//         if (channel === '6') {
+//             adjustedOrder = parseInt(filterOrder) + 6;
+//         }
+
+//         // Cập nhật bảng giao diện
+//         const prefix = channelMap[channel];
+//         const elements = {
+//             sst: document.getElementById(`sst${prefix}${adjustedOrder}`),
+//             kcn: document.getElementById(`kcn${prefix}${adjustedOrder}`),
+//             tsc: document.getElementById(`tsc${prefix}${adjustedOrder}`),
+//             cds: document.getElementById(`cds${prefix}${adjustedOrder}`),
+//             dda: document.getElementById(`dda${prefix}${adjustedOrder}`),
+//             lbl: document.getElementById(`lbl${prefix}${adjustedOrder}`)
+//         };
+//         if (Object.values(elements).some(el => !el)) {
+//             console.error(`[Advanced EQ] Không tìm thấy một số phần tử giao diện cho rowId: sst${prefix}${adjustedOrder}`);
+//             alert('Lỗi: Không tìm thấy phần tử giao diện!');
+//             return;
+//         }
+//         elements.sst.textContent = filterOrder;
+//         elements.kcn.textContent = channelTextMap[channel];
+//         elements.tsc.textContent = fs;
+//         elements.cds.textContent = db;
+//         elements.dda.textContent = q;
+//         elements.lbl.textContent = filterType;
+
+//         // Gửi filterType nguyên bản, không mã hóa
+//         const dataToSend = `0;0;${channel},${fs},${db},${q},${filterOrder},${filterType}~!@`;
+//         const xhttp = new XMLHttpRequest();
+//         xhttp.open("POST", "/data_in_esp", true);
+//         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//         xhttp.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     console.log(`[Advanced EQ] Phản hồi từ ESP32: ${this.responseText}`);
+//                 } else {
+//                     console.error(`[Advanced EQ] Lỗi khi gửi yêu cầu: ${this.status}`);
+//                     alert('Có lỗi khi gửi yêu cầu đến ESP32!');
+//                 }
+//             }
+//         };
+//         xhttp.send(dataToSend);
+//         console.log(`[Advanced EQ] Gửi dữ liệu: ${dataToSend}`);
+//     }
+
+//     // Gắn hàm vào global để gọi từ HTML
+//     window.applyFilter = applyFilter;
+// })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // IIFE cho Reverb & Echo section
